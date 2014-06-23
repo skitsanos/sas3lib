@@ -7,17 +7,14 @@ package com.skitsanos.utils.command
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 
-	/**
-	 *
-	 *  $Id: AbstractCommand.as 52 2008-02-06 02:57:19Z gabriel_montagne $
-	 *
-	 */
 	public class AbstractCommand extends EventDispatcher implements ICommand
 	{
 
+		public var data:Object = null;
+
 		public function execute():void
 		{
-			trace("AbstractCommand: execute method not implemented");
+			//trace("AbstractCommand: execute method not implemented");
 		}
 
 		protected function onCommandComplete():void
