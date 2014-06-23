@@ -5,12 +5,7 @@ package com.skitsanos.utils.command
 {
 	import flash.events.ErrorEvent;
 	import flash.events.Event;
-
-	/**
-	 *
-	 *  $Id: CommandQueue.as 52 2008-02-06 02:57:19Z gabriel_montagne $
-	 *
-	 */
+	
 	public class CommandQueue extends AbstractCommand
 	{
 
@@ -40,6 +35,11 @@ package com.skitsanos.utils.command
 
 				dispatchEvent(new CommandQueueEvent(CommandQueueEvent.PROGRESS, _currentCommandIndex, _commandList.length));
 			}
+		}
+
+		public function getCommandAt(ndx:int):AbstractCommand
+		{
+			  return _commandList[ndx];
 		}
 
 		public function addCommand(command:AbstractCommand, ...commands):void
@@ -85,8 +85,7 @@ package com.skitsanos.utils.command
 
 					if (_abortOnFail)
 					{
-						onCommandFail((event as ErrorEvent
-								).text);
+						onCommandFail((event as ErrorEvent).text);
 					}
 					else
 					{
